@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SistemaDeVentasAIT.Models.Usuarios>
+
+<h2>Lista de Usuarios</h2>
+
+<a href="/Usuarios/Crear" class="btn btn-primary">Agregar Usuario</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>contraseña</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Password</td>
+                <td>@item.Estado</td>
+            </tr>
+        }
+    </tbody>
+</table>
