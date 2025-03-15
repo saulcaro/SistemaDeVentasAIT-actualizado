@@ -22,7 +22,7 @@ public class HomeController : Controller
 
     public string AccessDenied()
     {
-        return "ACCESO DENEGADO POR KABRO Y NO ESTAR REGISTRADO";
+        return "ACCESO DENEGADO ";
     }
 
     public IActionResult Privacy()

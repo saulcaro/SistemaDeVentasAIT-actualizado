@@ -37,16 +37,23 @@ public class LoginController : Controller
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync("CookieAuth", principal);
 
-            return RedirectToAction("Index", "Producto");
+            return RedirectToAction("Index", "Producto"); //indextreact
         }
 
         ViewBag.Error = "Usuario o contraseña incorrectos";
         return View("Index");
     }
 
+    [HttpGet]
+    public string hola()
+    {
+        return ("hola");
+    }
+
+    [HttpPost]
     public async Task<IActionResult> Logout()
     {
-        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        return RedirectToAction("Index");
+        await HttpContext.SignOutAsync("CookieAuth");
+        return RedirectToAction("Index", "Producto");
     }
 }

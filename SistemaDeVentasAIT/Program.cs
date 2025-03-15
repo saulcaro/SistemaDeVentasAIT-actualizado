@@ -21,13 +21,29 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Habilitar controladores con vistas (MVC)
 builder.Services.AddControllersWithViews();
 
+// Habilitar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTodo",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 // Middleware de autenticación y autorización
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Usar la política CORS
+app.UseCors("PermitirTodo");
+
 //otros Middelwares
+app.UseStaticFiles(); // Permite servir archivos estáticos en wwwroot
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

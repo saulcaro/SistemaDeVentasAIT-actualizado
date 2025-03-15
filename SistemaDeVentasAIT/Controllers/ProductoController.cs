@@ -51,7 +51,7 @@ public class ProductoController : Controller
 
     public string Saludo()
     {
-        return "Hola Mundo esto es un texto plano"; 
+        return "Hola Mundo esto es un texto plano";
     }
 
     [HttpPost]
@@ -67,21 +67,21 @@ public class ProductoController : Controller
     }
 
     [HttpPost]
-public async Task<IActionResult> Eliminar(int id)
-{
-    var producto = await _context.Productos.FindAsync(id);
-    if (producto == null)
+    public async Task<IActionResult> Eliminar(int id)
     {
-        TempData["ErrorMessage"] = "Usuario no encontrado.";
+        var producto = await _context.Productos.FindAsync(id);
+        if (producto == null)
+        {
+            TempData["ErrorMessage"] = "Usuario no encontrado.";
+            return RedirectToAction("Index");
+        }
+
+        _context.Productos.Remove(producto);
+        await _context.SaveChangesAsync();
+
+        TempData["SuccessMessage"] = "Usuario eliminado correctamente.";
         return RedirectToAction("Index");
     }
-
-    _context.Productos.Remove(producto);
-    await _context.SaveChangesAsync();
-
-    TempData["SuccessMessage"] = "Usuario eliminado correctamente.";
-    return RedirectToAction("Index");
-}
 
     //Método POST para actualizar el producto en la base de datos
     [HttpPost]

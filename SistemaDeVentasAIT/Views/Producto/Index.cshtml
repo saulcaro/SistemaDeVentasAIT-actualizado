@@ -1,52 +1,131 @@
 ﻿@model IEnumerable<SistemaDeVentasAIT.Models.Producto>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 
-@if (TempData["ErrorMessage"] != null)
-{
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        @TempData["ErrorMessage"]
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div class="bodyProductos">
+    <div class="d-flex">
+        <div class="sidebar">
+            <a href="#" onclick="showSection('Inicio')"><i data-lucide="home"></i></a>
+            <a href="#" onclick="showSection('Informes')"><i data-lucide="bar-chart"></i></a>
+            <form asp-controller="Login" asp-action="Logout" method="post">
+                <button class="Logout" type="submit"><i data-lucide="log-out"></i></button>
+            </form>
+
+            
+        </div>
+        <main class="content">
+            <div class="container section" id="Inicio">
+                <div class="row mb-4 animate__animated animate__zoomInDown">
+                    <div class="col-md-4">
+                        <div class="card text-white bg-primary shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Abrir Caja</h5>
+                                <p class="card-text">Estado: Cerrada</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-white bg-success shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Productos</h5>
+                                <p class="card-text">125</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 animate__animated animate__fadeInDown">
+                        <div class="card text-white bg-warning shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Ventas del Día</h5>
+                                <p class="card-text">S/. 1,250.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-4">
+                    <h2 class="h4">Lista de Productos</h2>
+                    <p>Haga scroll para ver más productos!</p>
+                    <table class="table table-striped rounded-2">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr data-aos="zoom-in-up">
+                                    <td>@item.Nombre</td>
+                                    <td>S/. @item.Precio</td>
+                                    <td>@item.Stock</td>
+                                    <td>
+                                        <a href="/Producto/Editar?id=@item.Id" class="btn btn-warning">Editar</a>
+                                        <form method="post" action="/Producto/Eliminar" class="d-inline">
+                                            <input type="hidden" name="id" value="@item.Id" />
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro que deseas eliminar este producto?');">
+                                                Eliminar
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="section" id="Informes" style="display: none;">
+                <h2>Seccion en desarrollo</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <canvas id="chartVentas"></canvas>
+                    </div>
+                    <div class="col-md-4">
+                        <canvas id="chartCategorias"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </main>
     </div>
-}
-
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        @TempData["SuccessMessage"]
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-}
-
-<h2>Lista de Productos</h2>
-
-<a href="/Producto/Crear" class="btn btn-primary">Agregar Producto</a>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Acciones</th> 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Nombre</td>
-                <td>@item.Precio</td>
-                <td>@item.Stock</td>
-                <td>
-                    <a href="/Producto/Editar?id=@item.Id" class="btn btn-warning">Editar</a>
-
-                    <form method="post" action="/Producto/Eliminar" style="display:inline;">
-                        <input type="hidden" name="id" value="@item.Id" />
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Seguro que deseas eliminar este producto?');">
-                            Eliminar
-                        </button>
-                    </form>
-                </td>
-            </tr>
+    <script>
+        lucide.createIcons();
+        AOS.init();
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+            document.getElementById(section).style.display = 'block';
         }
-    </tbody>
-</table>
+
+        const ctx1 = document.getElementById('chartVentas').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+                datasets: [{
+                    label: 'Ventas Semanales',
+                    data: [120, 190, 300, 500, 200, 300, 400],
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)'
+                }]
+            }
+        });
+
+        const ctx2 = document.getElementById('chartCategorias').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Electrónica', 'Ropa', 'Alimentos'],
+                datasets: [{
+                    data: [20, 20, 60],
+                    backgroundColor: ['#ff6384', '#36a2eb', '#ffce56']
+                }]
+            }
+        });
+    </script>
+</div>
