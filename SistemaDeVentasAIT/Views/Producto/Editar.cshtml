@@ -1,35 +1,89 @@
 ﻿@model SistemaDeVentasAIT.Models.Producto
 
-<h2>Editar Producto</h2>
+<div class="container py-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h4 mb-0"><i data-lucide="edit"></i> Editar Producto</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Editar" method="post">
+                <input type="hidden" asp-for="Id" />
 
-<form asp-action="Editar" method="post">
-    <input type="hidden" asp-for="Id" />
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Nombre del Producto</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i data-lucide="package"></i></span>
+                        <input type="text" asp-for="Nombre" class="form-control form-control-lg" required
+                               placeholder="Ingrese el nombre del producto" />
+                    </div>
+                </div>
 
-    <div class="mb-3">
-        <label class="form-label">Nombre</label>
-        <input type="text" asp-for="Nombre" class="form-control" required />
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Precio</label>
+                        <div class="input-group">
+                            <span class="input-group-text">S/.</span>
+                            <input type="number" asp-for="Precio" class="form-control form-control-lg"
+                                   step="0.01" required placeholder="0.00" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Stock</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i data-lucide="boxes"></i></span>
+                            <input type="number" asp-for="Stock" class="form-control form-control-lg"
+                                   required placeholder="Cantidad disponible" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i data-lucide="save"></i> Guardar Cambios
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                        <i data-lucide="x"></i> Cancelar
+                    </a>
+                </div>
+            </form>
+
+            
+        </div>
     </div>
+</div>
 
-    <div class="mb-3">
-        <label class="form-label">Precio</label>
-        <input type="number" asp-for="Precio" class="form-control" step="0.01" required />
-    </div>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    lucide.createIcons();
+</script>
 
-    <div class="mb-3">
-        <label class="form-label">Stock</label>
-        <input type="number" asp-for="Stock" class="form-control" required />
-    </div>
+<style>
+    .input-group-text {
+        background-color: #f8f9fa;
+        border-right: none;
+    }
 
-    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-</form>
+    .form-control {
+        border-left: none;
+    }
 
-@if (TempData["ErrorMessage"] != null)
-{
-    <div class="alert alert-danger mt-3">@TempData["ErrorMessage"]</div>
-}
+        .form-control:focus {
+            border-color: #dee2e6;
+            box-shadow: none;
+        }
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success mt-3">@TempData["SuccessMessage"]</div>
-}
+    .input-group:focus-within .input-group-text {
+        border-color: #86b7fe;
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+</style>

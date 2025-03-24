@@ -40,5 +40,7 @@ namespace SistemaDeVentasAIT.Controllers
             return View(usuario); //si el modelo no es valido se devuelve la vista con el modelo
         }
 
+        
+
     }
 }

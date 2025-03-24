@@ -51,7 +51,7 @@ public class ProductoController : Controller
 
     public string Saludo()
     {
-        return "Hola Mundo esto es un texto plano";
+        return "Hola, esto es un texto plano";
     }
 
     [HttpPost]
@@ -72,14 +72,14 @@ public class ProductoController : Controller
         var producto = await _context.Productos.FindAsync(id);
         if (producto == null)
         {
-            TempData["ErrorMessage"] = "Usuario no encontrado.";
+            TempData["ErrorMessage"] = "Producto no encontrado.";
             return RedirectToAction("Index");
         }
 
         _context.Productos.Remove(producto);
         await _context.SaveChangesAsync();
 
-        TempData["SuccessMessage"] = "Usuario eliminado correctamente.";
+        TempData["SuccessMessage"] = "Producto eliminado correctamente.";
         return RedirectToAction("Index");
     }
 

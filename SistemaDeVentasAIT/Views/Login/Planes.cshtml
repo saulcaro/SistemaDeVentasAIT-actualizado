@@ -1,0 +1,225 @@
+﻿@{
+    ViewData["Title"] = "Planes y Precios - SistemaDeVentasAIT";
+}
+
+<!-- Asegurándonos de que Bootstrap esté incluido -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+
+<div class="pricing-header">
+    <div class="container">
+        <div class="text-center">
+            <h1 class="display-4 fw-bold text-primary mb-3">Planes y Precios</h1>
+            <p class="lead mb-5">Elige el plan perfecto para tu zapatería y comienza a impulsar tu negocio</p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        <div class="col">
+            <div class="card h-100 pricing-card">
+                <div class="pricing-card-header">
+                    <h3 class="fw-bold">Básico</h3>
+                    <div class="price mb-0">
+                        <span class="price-currency">S/</span>60<span class="price-period">/mes</span>
+                    </div>
+                    <p class="mb-0">Perfecto para zapaterías pequeñas</p>
+                </div>
+                <div class="card-body p-4">
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Control de ventas e inventario</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Gestión de clientes básica</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> 1 usuario</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Reportes mensuales</li>
+                        <li class="mb-3"><i class="bi bi-x-circle-fill feature-times"></i> IA para predicción de ventas</li>
+                        <li class="mb-3"><i class="bi bi-x-circle-fill feature-times"></i> Facturación electrónica</li>
+                        <li class="mb-3"><i class="bi bi-x-circle-fill feature-times"></i> Aplicación móvil</li>
+                        <li class="mb-3"><i class="bi bi-x-circle-fill feature-times"></i> Soporte premium</li>
+                    </ul>
+                </div>
+                <div class="card-footer p-4 bg-white border-0">
+                    <button class="btn btn-outline-primary w-100 py-3">Empezar ahora</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 pricing-card popular">
+                <div class="pricing-badge">Más popular</div>
+                <div class="pricing-card-header">
+                    <h3 class="fw-bold">Estándar</h3>
+                    <div class="price mb-0">
+                        <span class="price-currency">S/</span>80<span class="price-period">/mes</span>
+                    </div>
+                    <p class="mb-0">Ideal para zapaterías en crecimiento</p>
+                </div>
+                <div class="card-body p-4">
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Control de ventas e inventario</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Gestión de clientes avanzada</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> 3 usuarios</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Reportes semanales</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> IA básica para predicción</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Facturación electrónica</li>
+                        <li class="mb-3"><i class="bi bi-x-circle-fill feature-times"></i> Aplicación móvil</li>
+                        <li class="mb-3"><i class="bi bi-x-circle-fill feature-times"></i> Soporte premium</li>
+                    </ul>
+                </div>
+                <div class="card-footer p-4 bg-white border-0">
+                    <button class="btn btn-primary w-100 py-3">Seleccionar plan</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 pricing-card premium">
+                <div class="pricing-card-header">
+                    <h3 class="fw-bold">Premium</h3>
+                    <div class="price mb-0">
+                        <span class="price-currency">S/</span>120<span class="price-period">/mes</span>
+                    </div>
+                    <p class="mb-0">Para zapaterías que buscan maximizar ventas</p>
+                </div>
+                <div class="card-body p-4">
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Control de ventas e inventario</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Gestión de clientes premium</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Usuarios ilimitados</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Reportes en tiempo real</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> IA avanzada con recomendaciones</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Facturación electrónica</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Aplicación móvil incluida</li>
+                        <li class="mb-3"><i class="bi bi-check-circle-fill feature-check"></i> Soporte premium 24/7</li>
+                    </ul>
+                </div>
+                <div class="card-footer p-4 bg-white border-0">
+                    <button class="btn btn-primary w-100 py-3">Obtener Premium</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-8 mx-auto">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h4>¿Necesitas un plan personalizado?</h4>
+                            <p class="mb-md-0">Contáctanos para crear un plan a medida para tu negocio con las características específicas que necesitas.</p>
+                        </div>
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <button class="btn btn-outline-primary py-2 px-4" data-bs-toggle="modal" data-bs-target="#contactModal">Contactar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 mb-4">Preguntas frecuentes</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                ¿Cuánto tiempo toma implementar el sistema?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                La implementación del SistemaDeVentasAIT generalmente toma entre 3 a 7 días dependiendo del tamaño de tu negocio y la cantidad de datos a migrar. Nuestro equipo técnico te guiará en todo el proceso para asegurar una transición fluida.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                ¿Puedo cambiar de plan en cualquier momento?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Sí, puedes actualizar o cambiar tu plan en cualquier momento. Los cambios se aplicarán al siguiente ciclo de facturación. Si actualizas a un plan superior durante un mes, solo pagarás la diferencia prorrateada.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 shadow-sm">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                ¿Cómo funciona la IA para predicción de ventas?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Nuestra IA analiza los datos históricos de ventas, tendencias de mercado, estacionalidad y comportamiento de clientes para predecir qué estilos y modelos tendrán mayor demanda. Esto te ayuda a optimizar tu inventario y maximizar tus ventas al tener siempre el calzado adecuado en stock.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 shadow-sm">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                ¿La facturación electrónica cumple con SUNAT?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Sí, nuestro sistema está totalmente homologado con SUNAT y cumple con todos los requisitos legales para la emisión de facturas y boletas electrónicas en Perú. Además, mantenemos el sistema actualizado ante cualquier cambio normativo.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de contacto -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="contactModalLabel">Solicitar plan personalizado</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="negocio" class="form-label">Nombre de su zapatería</label>
+                        <input type="text" class="form-control" id="negocio" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Requerimientos específicos</label>
+                        <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Enviar solicitud</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

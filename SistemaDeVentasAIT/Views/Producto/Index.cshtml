@@ -2,24 +2,108 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-    AOS.init();
-</script>
+
+<style>
+    .bodyProductos {
+        background-color: #f8f9fa;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        width: 70px; /* Reduced width */
+        background: #2c3e50;
+        padding: 1rem 0.5rem; /* Adjusted padding */
+        height: 100vh;
+        position: fixed;
+        transition: all 0.3s ease;
+    }
+
+        .sidebar a, .sidebar .Logout {
+            display: flex;
+            justify-content: center; /* Center icons */
+            align-items: center;
+            color: white;
+            padding: 1rem 0;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .sidebar span {
+            display: none; /* Hide text */
+        }
+
+    .content {
+        margin-left: 70px; /* Adjusted margin */
+        width: calc(100% - 70px); /* Adjusted width */
+        padding: 2rem;
+    }
+
+    /* Add floating action button style */
+    .fab-button {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #3498db;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+        .fab-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px #fff;
+        }
+</style>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger mt-4 d-flex align-items-center" role="alert">
+        <i data-lucide="alert-circle" class="me-2"></i>
+        <div>@TempData["ErrorMessage"]</div>
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success mt-4 d-flex align-items-center" role="alert">
+        <i data-lucide="check-circle" class="me-2"></i>
+        <div>@TempData["SuccessMessage"]</div>
+    </div>
+}
+<a href="@Url.Action("Crear", "Producto")" class="fab-button">
+
+    <i data-lucide="circle-plus"></i>
+</a>
 
 <div class="bodyProductos">
     <div class="d-flex">
         <div class="sidebar">
-            <a href="#" onclick="showSection('Inicio')"><i data-lucide="home"></i></a>
-            <a href="#" onclick="showSection('Informes')"><i data-lucide="bar-chart"></i></a>
+            <a href="#" onclick="showSection('Inicio')" title="Inicio">
+                <i data-lucide="home"></i>
+            </a>
+            <a href="#" onclick="showSection('Informes')" title="Informes">
+                <i data-lucide="bar-chart"></i>
+            </a>
             <form asp-controller="Login" asp-action="Logout" method="post">
-                <button class="Logout" type="submit"><i data-lucide="log-out"></i></button>
+                <button class="Logout" type="submit" title="Cerrar Sesión">
+                    <i data-lucide="log-out"></i>
+                </button>
             </form>
-
-            
         </div>
         <main class="content">
             <div class="container section" id="Inicio">
-                <div class="row mb-4 animate__animated animate__zoomInDown">
+                <h1 class="section-title">Dashboard</h1>
+                <div class="row mb-4 animate__animated animate__fadeInUp">
                     <div class="col-md-4">
                         <div class="card text-white bg-primary shadow-sm">
                             <div class="card-body">
@@ -45,9 +129,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive mt-4">
-                    <h2 class="h4">Lista de Productos</h2>
-                    <p>Haga scroll para ver más productos!</p>
+                <div class="table-responsive mt-4 animate__animated animate__fadeInUp">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h4 section-title">Lista de Productos</h2>
+                        <p class="text-muted mb-0">Haga scroll para ver más productos!</p>
+                    </div>
+                    
                     <table class="table table-striped rounded-2">
                         <thead class="table-dark">
                             <tr>
@@ -97,7 +184,10 @@
     </div>
     <script>
         lucide.createIcons();
-        AOS.init();
+        AOS.init({
+            duration: 800,
+            once: true
+        });
         function showSection(section) {
             document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
             document.getElementById(section).style.display = 'block';
@@ -129,3 +219,36 @@
         });
     </script>
 </div>
+
+<script>
+    // Add scroll animation observer
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('aos-animate');
+            } else {
+                entry.target.classList.remove('aos-animate');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all product rows
+    document.querySelectorAll('[data-aos]').forEach(element => {
+        observer.observe(element);
+    });
+
+    // Initialize AOS with updated settings
+    AOS.init({
+        duration: 800,
+        once: false  // Changed to false to enable re-animation
+    });
+</script>
+
+<!-- Add floating action button for new product -->
+
+
+

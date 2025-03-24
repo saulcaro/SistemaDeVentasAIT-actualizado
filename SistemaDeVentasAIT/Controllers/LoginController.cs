@@ -45,6 +45,13 @@ public class LoginController : Controller
     }
 
     [HttpGet]
+    //mostrar la vista planes
+    public IActionResult Planes()
+    {
+        return View();
+    }
+
+    [HttpGet]
     public string hola()
     {
         return ("hola");

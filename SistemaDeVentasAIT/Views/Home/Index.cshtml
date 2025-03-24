@@ -1,8 +1,267 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "SistemaDeVentasAIT - La solución inteligente para zapaterías";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Asegurándonos de que Bootstrap esté incluido -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+<link href="~/css/StileInicio.css" rel="stylesheet" />
+
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-3 fw-bold text-primary mb-3">SistemaDeVentasAIT</h1>
+                <h2 class="display-5 mb-4">La revolución en gestión de zapaterías con IA</h2>
+                <p class="lead mb-4">Potencia tu negocio con la primera solución integral diseñada exclusivamente para el sector calzado con tecnología de inteligencia artificial.</p>
+                <div class="d-flex gap-3">
+                    <button class="btn btn-primary btn-lg px-4 py-2" data-bs-toggle="modal" data-bs-target="#demoModal">Solicitar Demo</button>
+                    <a href="/Precios" class="btn btn-outline-primary btn-lg px-4 py-2">Ver Planes</a>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0 img-ui">
+                <img src="/imagenes/image.jpg" alt="SistemaDeVentasAIT Dashboard" class="img-fluid  rounded shadow-lg" />
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="features-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5 display-5">Funcionalidades Inteligentes</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary text-white mb-3">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h3 class="card-title h4">Análisis Predictivo</h3>
+                        <p class="card-text">Nuestra IA analiza patrones de venta y te recomienda qué estilos comprar según temporadas y tendencias.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary text-white mb-3">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3 class="card-title h4">Gestión de Clientes</h3>
+                        <p class="card-text">Seguimiento de preferencias de tus clientes, recordatorios de compra y sugerencias personalizadas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="feature-icon bg-primary text-white mb-3">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <h3 class="card-title h4">Control de Inventario</h3>
+                        <p class="card-text">Optimiza tu inventario con alertas automáticas y recomendaciones de reabastecimiento inteligente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="testimonials-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 display-5">Lo que dicen nuestros clientes</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="testimonial-card text-center p-4 bg-white shadow-sm rounded">
+                                <p class="testimonial-text mb-3">"Desde que implementamos SistemaDeVentasAIT, nuestras ventas han aumentado un 30%. La IA nos ayuda a tener siempre el calzado que nuestros clientes buscan."</p>
+                                <h5 class="testimonial-author">María Rodríguez</h5>
+                                <p class="testimonial-position text-muted">Dueña de Calzados Eleganza</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card text-center p-4 bg-white shadow-sm rounded">
+                                <p class="testimonial-text mb-3">"El control de inventario es impresionante. Ya no tenemos exceso de modelos que no se venden y siempre contamos con los más populares."</p>
+                                <h5 class="testimonial-author">Carlos Vega</h5>
+                                <p class="testimonial-position text-muted">Gerente de Zapatos Modernos</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card text-center p-4 bg-white shadow-sm rounded">
+                                <p class="testimonial-text mb-3">"La función de recomendaciones personalizadas ha fidelizado a nuestros clientes. Regresan porque saben que tenemos lo que buscan."</p>
+                                <h5 class="testimonial-author">Ana López</h5>
+                                <p class="testimonial-position text-muted">Directora de Zapatería Paso Firme</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-section py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 mb-4">Potencia tu zapatería hoy mismo</h2>
+                <p class="lead mb-4">Únete a los cientos de zapaterías que ya han transformado su negocio con SistemaDeVentasAIT.</p>
+                <button class="btn btn-light btn-lg px-4 py-2" data-bs-toggle="modal" data-bs-target="#contactModal">Contactar a un especialista</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="benefits-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 display-5">¿Por qué elegir SistemaDeVentasAIT?</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="benefit-icon text-primary mb-3">
+                            <i class="bi bi-lightning-charge-fill fs-2"></i>
+                        </div>
+                        <h3 class="card-title h5">Implementación rápida</h3>
+                        <p class="card-text">En menos de una semana tu sistema estará funcionando al 100%.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="benefit-icon text-primary mb-3">
+                            <i class="bi bi-gear-fill fs-2"></i>
+                        </div>
+                        <h3 class="card-title h5">Personalizado para zapaterías</h3>
+                        <p class="card-text">Diseñado específicamente para el sector calzado, con todas las funciones que necesitas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="benefit-icon text-primary mb-3">
+                            <i class="bi bi-cloud-arrow-up-fill fs-2"></i>
+                        </div>
+                        <h3 class="card-title h5">En la nube</h3>
+                        <p class="card-text">Accede desde cualquier dispositivo y en cualquier momento a tu información.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="benefit-icon text-primary mb-3">
+                            <i class="bi bi-headset fs-2"></i>
+                        </div>
+                        <h3 class="card-title h5">Soporte 24/7</h3>
+                        <p class="card-text">Nuestro equipo está siempre disponible para resolver cualquier duda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="demoModalLabel">Solicitar una demostración</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="negocio" class="form-label">Nombre de su zapatería</label>
+                        <input type="text" class="form-control" id="negocio" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Solicitar demo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="contactModalLabel">Contactar a un especialista</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="contactNombre" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="contactNombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactEmail" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="contactEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactTelefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="contactTelefono" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactMensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="contactMensaje" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializa los componentes de Bootstrap
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Animación al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeIn');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observar secciones para animación
+        document.querySelectorAll('.features-section, .testimonials-section, .cta-section, .benefits-section').forEach(section => {
+            observer.observe(section);
+        });
+    });
+</script>

@@ -52,6 +52,6 @@ app.UseAuthorization();
 // Configurar la ruta principal
 app.MapControllerRoute(
     name: "newRout",
-    pattern: "{controller=Login}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
